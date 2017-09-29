@@ -1,13 +1,27 @@
 <div>
     <h3>Bestellübersicht</h3>
     ID: {{selectedOrder.id}} <br/>
-    Name: {{selectedOrder.name}}
+    Name: {{selectedOrder.name}} <br/>
+    Bestellnummer: {{selectedOrder.bestellnummer}} <br/>
+
+    Wert der Bestellung: {{selectedOrder.wert}} <br>
 </div>
 
-<div *ngFor="let order of orders;">
+<div *ngFor="let order of orders">
 
-    <div class="orderRow" (click)="selectOrder(order)">
-        {{order.name}}
-    </div>
-     
+    <li class="orderRow" (click)="selectOrder(order)">
+        <div>
+            {{order.id}}
+            {{order.bestellnummer}}
+            {{order.name}}
+            Positionen: {{order.pos.positionen.length}} <br/>
+            <ul>
+                <li *ngFor="let position of order.pos.positionen"> {{position.name}}, {{position.losnummer}} </li>
+            </ul>
+        </div>
+
+        <div>
+
+        </div>
+    </li>
 </div>

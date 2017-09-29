@@ -12,11 +12,11 @@ import { OrderService } from './order.service';
     templateUrl: 'order-overview.html'
 })
 export class OrderOverviewComponent {
-    
+
     constructor(private orderService: OrderService) {
 
             orderService.orders.subscribe(allOrders => {
-                this.orders = allOrders
+                this.orders = allOrders;
                 this.selectedOrder = allOrders[0]
         });
 
@@ -24,6 +24,7 @@ export class OrderOverviewComponent {
 
     public orders: Order[];
     public selectedOrder: Order;
+
 
     selectOrder(selectedOrder: Order)
     {
