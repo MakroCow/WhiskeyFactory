@@ -5,29 +5,29 @@ export class Order{
         public id: string,
         public name: string,
         public bestellnummer: string,
-        public pos : Pos,
-        public wert : number
+        public pos : [Artikel],         //Das ist ein Array von Artikeln
+        public wert : number,
+        public kunde : Kunde
         )
-    {
-    }
+    { }
 }
 
-export class Pos{
+export class Artikel {
 
-    constructor(
-        public pos0 : Whisky,
-        public pos1 : Whisky,
-        public pos2 : Whisky,
-        public pos3 : Whisky,
-        public pos4 : Whisky
-    ){    }
-    public positionen = [this.pos0, this.pos1, this.pos2, this.pos3, this.pos4];
-}
-
-export class Whisky {
     constructor (
-        public name : string,
+        public art : number,        //0=whisky, 1=gutschein,
+        public name : string,       //Bei Gutscheinen wird dieses Feld als Nachrichtenfeld mitbenutzt
         public losnummer: number,
         public zusammensetzung: number[],
-    ) { }
+        public wert : number        //Preis der Whiskyflasche oder Wert des Gutscheins
+    ){  }
+}
+
+export class Kunde {
+    constructor(
+        public vorname : string,
+        public nachname : string,
+        public adresse : string,
+    )
+    {}
 }

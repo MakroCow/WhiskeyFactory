@@ -1,35 +1,39 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Order = /** @class */ (function () {
-    function Order(id, name, bestellnummer, pos, wert) {
+    function Order(id, name, bestellnummer, pos, //Das ist ein Array von Artikeln
+        wert, kunde) {
         this.id = id;
         this.name = name;
         this.bestellnummer = bestellnummer;
         this.pos = pos;
         this.wert = wert;
+        this.kunde = kunde;
     }
     return Order;
 }());
 exports.Order = Order;
-var Pos = /** @class */ (function () {
-    function Pos(pos0, pos1, pos2, pos3, pos4) {
-        this.pos0 = pos0;
-        this.pos1 = pos1;
-        this.pos2 = pos2;
-        this.pos3 = pos3;
-        this.pos4 = pos4;
-        this.positionen = [this.pos0, this.pos1, this.pos2, this.pos3, this.pos4];
-    }
-    return Pos;
-}());
-exports.Pos = Pos;
-var Whisky = /** @class */ (function () {
-    function Whisky(name, losnummer, zusammensetzung) {
+var Artikel = /** @class */ (function () {
+    function Artikel(art, //0=whisky, 1=gutschein,
+        name, //Bei Gutscheinen wird dieses Feld als Nachrichtenfeld mitbenutzt
+        losnummer, zusammensetzung, wert //Preis der Whiskyflasche oder Wert des Gutscheins
+    ) {
+        this.art = art;
         this.name = name;
         this.losnummer = losnummer;
         this.zusammensetzung = zusammensetzung;
+        this.wert = wert; //Preis der Whiskyflasche oder Wert des Gutscheins
     }
-    return Whisky;
+    return Artikel;
 }());
-exports.Whisky = Whisky;
+exports.Artikel = Artikel;
+var Kunde = /** @class */ (function () {
+    function Kunde(vorname, nachname, adresse) {
+        this.vorname = vorname;
+        this.nachname = nachname;
+        this.adresse = adresse;
+    }
+    return Kunde;
+}());
+exports.Kunde = Kunde;
 //# sourceMappingURL=order.model.js.map

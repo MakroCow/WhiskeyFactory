@@ -9,14 +9,17 @@
 
 <div *ngFor="let order of orders">
 
-    <li class="orderRow" (click)="selectOrder(order)">
+    <li class="orderRow" (click)="selectOrder(order)"> Bestellung von {{order.kunde.vorname}} {{order.kunde.nachname}}
         <div>
             {{order.id}}
             {{order.bestellnummer}}
             {{order.name}}
-            Positionen: {{order.pos.positionen.length}} <br/>
+            Positionen: {{order.pos.length}} <br/>
             <ul>
-                <li *ngFor="let position of order.pos.positionen"> {{position.name}}, {{position.losnummer}} </li>
+                <li *ngFor="let artikel of order.pos">
+                    <div *ngIf="artikel.art == 0"> Hier steht eine 2 </div>
+                    <div *ngIf="artikel.art == 1"> Hier steht eine 1 </div>
+                </li>
             </ul>
         </div>
 
