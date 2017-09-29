@@ -1,0 +1,13 @@
+<div>
+    <h3>Bestellübersicht</h3>
+    ID: {{selectedOrder.id}} <br/>
+    Name: {{selectedOrder.name}}
+</div>
+
+<div *ngFor="let order of orders;">
+
+    <div class="orderRow" (click)="selectOrder(order)">
+        {{order.name}}
+    </div>
+     
+</div>
