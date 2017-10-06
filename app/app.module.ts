@@ -9,6 +9,7 @@ import { HelpComponent } from './help/help.component';
 
 
 import { routing } from './app.routing';
+import {BestelldetailComponent} from "./bestelldetail/bestelldetail.component";
 
 @NgModule({
     imports: [
@@ -20,8 +21,11 @@ import { routing } from './app.routing';
     declarations: [
         AppComponent,
         OrderOverviewComponent,
-        HelpComponent
+        HelpComponent,
+        BestelldetailComponent
     ],
     bootstrap: [AppComponent]
 })
+
 export class AppModule { }
+

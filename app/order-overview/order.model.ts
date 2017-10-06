@@ -16,6 +16,7 @@ export class Artikel {
 
     constructor (
         public art : number,        //0=whisky, 1=gutschein,
+        public groesse : number,     //0=250ml, 1=500ml, 2=750ml
         public name : string,       //Bei Gutscheinen wird dieses Feld als Nachrichtenfeld mitbenutzt
         public losnummer: number,
         public zusammensetzung: number[],

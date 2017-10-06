@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import { Order } from './order.model';
 import { OrderService } from './order.service';
@@ -13,7 +13,8 @@ import { OrderService } from './order.service';
 })
 export class OrderOverviewComponent {
 
-    constructor(private orderService: OrderService) {
+    constructor(private orderService: OrderService,
+                private router: Router) {
 
             orderService.orders.subscribe(allOrders => {
                 this.orders = allOrders;
@@ -29,6 +30,10 @@ export class OrderOverviewComponent {
     selectOrder(selectedOrder: Order)
     {
         this.selectedOrder = selectedOrder;
-    }   
+    }
+
+    onSelect(order : Order){
+        this.router.navigate(['/bestelldetail/', order.id]);
+    }
 }
 

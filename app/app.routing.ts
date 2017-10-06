@@ -3,11 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { OrderOverviewComponent } from './order-overview/order-overview.component';
 import { HelpComponent } from './help/help.component';
+import {BestelldetailComponent} from "./bestelldetail/bestelldetail.component";
 
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: 'page1',
+        redirectTo: 'orders',
         pathMatch: 'full'
     },
     {
@@ -15,8 +16,17 @@ const appRoutes: Routes = [
         component: OrderOverviewComponent
     },
     {
+        path: 'bestelldetail/:orderid',
+        component: BestelldetailComponent
+    },
+    {
         path: 'help',
         component: HelpComponent
+    }
+    ,
+    {
+        path: '**',
+        component: OrderOverviewComponent
     }
 ];
 

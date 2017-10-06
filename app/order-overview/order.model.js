@@ -15,10 +15,12 @@ var Order = /** @class */ (function () {
 exports.Order = Order;
 var Artikel = /** @class */ (function () {
     function Artikel(art, //0=whisky, 1=gutschein,
+        groesse, //0=250ml, 1=500ml, 2=750ml
         name, //Bei Gutscheinen wird dieses Feld als Nachrichtenfeld mitbenutzt
         losnummer, zusammensetzung, wert //Preis der Whiskyflasche oder Wert des Gutscheins
     ) {
         this.art = art;
+        this.groesse = groesse;
         this.name = name;
         this.losnummer = losnummer;
         this.zusammensetzung = zusammensetzung;

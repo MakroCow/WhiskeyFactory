@@ -10,35 +10,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var order_service_1 = require("../order-overview/order.service");
 var router_1 = require("@angular/router");
-var order_service_1 = require("./order.service");
-var OrderOverviewComponent = /** @class */ (function () {
-    function OrderOverviewComponent(orderService, router) {
-        var _this = this;
+var BestelldetailComponent = /** @class */ (function () {
+    function BestelldetailComponent(orderService, router) {
+        /*        orderService.orders.subscribe(allOrders => {
+                    this.orders = allOrders;
+                    this.selectedOrder = allOrders[0]
+                });*/
         this.orderService = orderService;
         this.router = router;
-        orderService.orders.subscribe(function (allOrders) {
-            _this.orders = allOrders;
-            _this.selectedOrder = allOrders[0];
-        });
     }
-    OrderOverviewComponent.prototype.selectOrder = function (selectedOrder) {
-        this.selectedOrder = selectedOrder;
+    BestelldetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.router.params.subscribe(function (params) {
+            _this.orderid = +params['orderid'];
+        });
     };
-    OrderOverviewComponent.prototype.onSelect = function (order) {
+    BestelldetailComponent.prototype.onSelect = function (order) {
         this.router.navigate(['/bestelldetail/', order.id]);
     };
-    OrderOverviewComponent = __decorate([
+    BestelldetailComponent = __decorate([
         core_1.Component({
-            selector: 'order-overview',
-            styleUrls: ['order-overview.css'],
+            selector: 'bestelldetail',
             moduleId: module.id,
-            templateUrl: 'order-overview.html'
+            templateUrl: 'bestelldetail.html'
         }),
         __metadata("design:paramtypes", [order_service_1.OrderService,
             router_1.Router])
-    ], OrderOverviewComponent);
-    return OrderOverviewComponent;
+    ], BestelldetailComponent);
+    return BestelldetailComponent;
 }());
-exports.OrderOverviewComponent = OrderOverviewComponent;
-//# sourceMappingURL=order-overview.component.js.map
+exports.BestelldetailComponent = BestelldetailComponent;
+//# sourceMappingURL=bestelldetail.component.js.map

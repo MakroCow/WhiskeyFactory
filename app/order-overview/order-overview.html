@@ -3,28 +3,44 @@
     ID: {{selectedOrder.id}} <br/>
     Name: {{selectedOrder.name}} <br/>
     Bestellnummer: {{selectedOrder.bestellnummer}} <br/>
-
     Wert der Bestellung: {{selectedOrder.wert}} <br>
 </div>
 
 <div *ngFor="let order of orders">
-
-    <li class="orderRow" (click)="selectOrder(order)"> Bestellung von {{order.kunde.vorname}} {{order.kunde.nachname}}
+    <ul><!--(click)="selectOrder(order)"-->
+    <li class="orderRow" (click)="onSelect(order)"> Bestellung von {{order.kunde.vorname}} {{order.kunde.nachname}}
         <div>
             {{order.id}}
             {{order.bestellnummer}}
             {{order.name}}
+        </div>
             Positionen: {{order.pos.length}} <br/>
             <ul>
                 <li *ngFor="let artikel of order.pos">
-                    <div *ngIf="artikel.art == 0"> Hier steht eine 2 </div>
-                    <div *ngIf="artikel.art == 1"> Hier steht eine 1 </div>
+                    <!--Kleine Flasche (250ml)-->
+                    <div *ngIf="artikel.art == 0 && artikel.groesse == 0">
+                        <i class="material-icons">local_drink</i>
+                        Kleine Flasche, Name: {{artikel.name}}, Losnummer: {{artikel.losnummer}}, Einzelwert: {{artikel.wert}} €
+                    </div>
+                    <!--Mittlere Flasche (500ml)-->
+                    <div *ngIf="artikel.art == 0 && artikel.groesse == 1">
+                        <i class="material-icons">local_drink</i>
+                        Mittlere Flasche, Name: {{artikel.name}}, Losnummer: {{artikel.losnummer}}, Einzelwert: {{artikel.wert}} €
+                    </div>
+                    <!--Große Flasche (750ml)-->
+                    <div *ngIf="artikel.art == 0 && artikel.groesse == 2">
+                        <i class="material-icons">local_drink</i>
+                        Große Flasche (750ml), Name: {{artikel.name}}, Losnummer: {{artikel.losnummer}}, Einzelwert: {{artikel.wert}} €
+                    </div>
+                    <!--Gutschein -->
+                    <div *ngIf="artikel.art == 1">
+                        <i class="material-icons">movie</i>
+                        Gutschein: Wert: {{artikel.wert}} €, Text: {{artikel.name}} </div>
                 </li>
             </ul>
-        </div>
-
         <div>
 
         </div>
     </li>
+    </ul>
 </div>
