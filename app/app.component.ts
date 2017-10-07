@@ -12,7 +12,9 @@ declare function showLegalAgeCheck();
     styleUrls: ['app.css'],
     moduleId: module.id,
     providers: [
-        OrderService] // du solltest hier den AbstractService benutzen
+    { provide: AbstractOrderSerivce,
+    useClass: OrderService }
+           ] // so in etwa
 })
 
 
