@@ -1,1 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300');
+
+body {
+ padding: 20px;
+ background: #eee;
+}
